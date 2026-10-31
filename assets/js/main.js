@@ -66,4 +66,4 @@
     });
   });
 })();
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'';if(typeof gtag!=='function')return;if(h.indexOf('tel:')===0){gtag('event','phone_click');}else if(h.indexOf('wa.me/')>-1){gtag('event','whatsapp_click');}});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||typeof gtag!=='function')return;var h=a.getAttribute('href')||'';if(h.indexOf('tel:')===0){gtag('event','conversion',{'send_to':'AW-18548697970/F87nCJqq3q8dEPLW2oxF','value':1.0,'currency':'EGP'});}else if(h.indexOf('wa.me/')>-1){gtag('event','conversion',{'send_to':'AW-18548697970/0c5ACNz_4K8dEPLW2oxF','value':1.0,'currency':'EGP'});}});
