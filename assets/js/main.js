@@ -66,3 +66,4 @@
     });
   });
 })();
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'';if(typeof gtag!=='function')return;if(h.indexOf('tel:')===0){gtag('event','phone_click');}else if(h.indexOf('wa.me/')>-1){gtag('event','whatsapp_click');}});
