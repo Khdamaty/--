@@ -22,61 +22,6 @@ e = html.escape
 
 
 # ───────────────────────── رسومات SVG ─────────────────────────
-def ill_fridge(cls="ill-fridge"):
-    return f'''<svg class="ill {cls}" viewBox="0 0 160 260" role="img" aria-label="ثلاجة">
-<rect x="20" y="8" width="120" height="236" rx="16" class="ill-body"/>
-<rect x="20" y="8" width="120" height="84" rx="16" class="ill-tint"/>
-<rect x="20" y="8" width="120" height="236" rx="16" class="ill-line"/>
-<line x1="20" y1="92" x2="140" y2="92" class="ill-line"/>
-<rect x="30" y="50" width="7" height="30" rx="3.5" class="ill-dark"/>
-<rect x="30" y="106" width="7" height="54" rx="3.5" class="ill-dark"/>
-<g class="ill-acc-s" stroke-linecap="round"><line x1="98" y1="32" x2="98" y2="68"/><line x1="80" y1="50" x2="116" y2="50"/><line x1="85" y1="37" x2="111" y2="63"/><line x1="111" y1="37" x2="85" y2="63"/></g>
-<rect x="34" y="244" width="16" height="9" rx="3" class="ill-dark"/><rect x="110" y="244" width="16" height="9" rx="3" class="ill-dark"/>
-</svg>'''
-
-
-def ill_dish(cls="ill-dish"):
-    return f'''<svg class="ill {cls}" viewBox="0 0 220 220" role="img" aria-label="غسالة أطباق">
-<rect x="12" y="12" width="196" height="196" rx="16" class="ill-body"/>
-<path d="M12 28a16 16 0 0 1 16-16h164a16 16 0 0 1 16 16v28H12z" class="ill-tint"/>
-<rect x="12" y="12" width="196" height="196" rx="16" class="ill-line"/>
-<line x1="12" y1="56" x2="208" y2="56" class="ill-line"/>
-<circle cx="38" cy="34" r="7" class="ill-acc"/><circle cx="62" cy="34" r="7" class="ill-dark"/>
-<rect x="132" y="25" width="62" height="18" rx="5" class="ill-dark"/>
-<rect x="56" y="68" width="108" height="10" rx="5" class="ill-dark"/>
-<rect x="34" y="94" width="152" height="94" rx="10" class="ill-glass"/>
-<g class="ill-line-s"><ellipse cx="72" cy="148" rx="22" ry="8"/><ellipse cx="72" cy="132" rx="22" ry="8"/><ellipse cx="72" cy="116" rx="22" ry="8"/></g>
-<g class="ill-acc"><path d="M130 112c8 10 12 16 12 22a12 12 0 0 1-24 0c0-6 4-12 12-22z"/><path d="M158 140c5 6 8 10 8 14a8 8 0 0 1-16 0c0-4 3-8 8-14z"/></g>
-</svg>'''
-
-
-def ill_wash(cls="ill-wash"):
-    return f'''<svg class="ill {cls}" viewBox="0 0 220 220" role="img" aria-label="غسالة">
-<rect x="14" y="10" width="192" height="204" rx="16" class="ill-body"/>
-<path d="M14 26a16 16 0 0 1 16-16h160a16 16 0 0 1 16 16v32H14z" class="ill-tint"/>
-<rect x="14" y="10" width="192" height="204" rx="16" class="ill-line"/>
-<line x1="14" y1="58" x2="206" y2="58" class="ill-line"/>
-<circle cx="44" cy="34" r="10" class="ill-acc"/><rect x="108" y="26" width="52" height="16" rx="5" class="ill-dark"/><circle cx="184" cy="34" r="6" class="ill-dark"/>
-<circle cx="110" cy="136" r="62" class="ill-dark"/><circle cx="110" cy="136" r="50" class="ill-glass"/>
-<path d="M62 146c14-10 26 10 48 0s34 10 48 0v8a50 50 0 0 1-96 0z" class="ill-acc" opacity=".85"/>
-<circle cx="92" cy="116" r="8" fill="#fff" opacity=".5"/>
-</svg>'''
-
-
-def ill_freezer(cls="ill-freezer"):
-    return f'''<svg class="ill {cls}" viewBox="0 0 220 220" role="img" aria-label="ديب فريزر">
-<rect x="10" y="70" width="200" height="130" rx="14" class="ill-body"/>
-<path d="M10 84a14 14 0 0 1 14-14h172a14 14 0 0 1 14 14v26H10z" class="ill-tint"/>
-<rect x="10" y="70" width="200" height="130" rx="14" class="ill-line"/>
-<line x1="10" y1="110" x2="210" y2="110" class="ill-line"/>
-<rect x="84" y="86" width="52" height="9" rx="4.5" class="ill-dark"/>
-<circle cx="36" cy="132" r="9" class="ill-acc"/><rect x="58" y="127" width="46" height="10" rx="5" class="ill-dark"/>
-<g class="ill-acc-s" stroke-linecap="round" transform="translate(150 152)"><line x1="0" y1="-18" x2="0" y2="18"/><line x1="-16" y1="-9" x2="16" y2="9"/><line x1="16" y1="-9" x2="-16" y2="9"/></g>
-<rect x="28" y="200" width="22" height="10" rx="3" class="ill-dark"/><rect x="170" y="200" width="22" height="10" rx="3" class="ill-dark"/>
-</svg>'''
-
-
-ILL = {"dish": ill_dish, "fridge": ill_fridge, "freezer": ill_freezer, "wash": ill_wash}
 
 # صور حقيقية لكل قسم (الأولى هي صورة بطاقة القسم)
 PHOTOS = {
@@ -103,8 +48,6 @@ PHOTOS = {
 
 
 def photo(theme, i, pre, cls="photo"):
-    if theme not in PHOTOS:
-        return ILL[theme]()
     f, alt = PHOTOS[theme][i % len(PHOTOS[theme])]
     return f'<img class="{cls}" src="{pre}assets/img/photos/{f}" alt="{alt}" loading="lazy" width="640" height="480">'
 
@@ -342,14 +285,6 @@ def area_chips(pre):
 
 # ───────────────────────── الصفحات ─────────────────────────
 def build_home():
-    hero_art = (
-        '<div class="hero-art" aria-hidden="true"><span class="blob"></span><div class="apps">'
-        + ill_dish("ill-dish")
-        + ill_fridge("ill-fridge")
-        + ill_freezer("ill-freezer")
-        + ill_wash("ill-wash")
-        + f'</div><span class="chip chip-1">{icon("fa-snowflake")}</span><span class="chip chip-2">{icon("fa-droplet")}</span><span class="chip chip-3">{icon("fa-icicles")}</span></div>'
-    )
     cards = []
     for c in CATEGORIES:
         lis = "".join(f'<li>{icon("fa-check")} {e(s["nav"])}</li>' for s in c["services"][:4])
@@ -486,7 +421,7 @@ def build_contact():
 
 
 def build_category(c):
-    art = f'<div class="ph-art" aria-hidden="true">{ILL[c["theme"]]()}</div>'
+    art = f'<div class="ph-art">{photo(c["theme"], 0, "../")}</div>'
     trail = [(c["name"], None)]
     sym = "".join(f'<li>{icon("fa-circle-exclamation")} {e(x)}</li>' for x in c["symptoms"])
     alert = alert_box(c["alert"]) if c.get("alert") else ""
@@ -516,7 +451,7 @@ def build_service(c, s):
     ) + "</ol></nav>"
     hero = f'''<section class="page-hero"><div class="container ph-grid"><div>{bc}<h1>{e(s["title"])}</h1><p class="lead">{e(s["summary"])}</p>
 <div class="hero-actions">{btn_call()}{btn_wa(cls="btn-ghost")}</div></div>
-<div class="ph-art ph-icon" aria-hidden="true">{icon(s["icon"])}</div></div></section>'''
+<div class="ph-art">{photo(c["theme"], c["services"].index(s) + 1, "../")}</div></div></section>'''
     sym_t = s.get("symptoms_title", "الأعراض")
     cau_t = s.get("causes_title", "الأسباب الشائعة")
     sym = "".join(f'<li>{icon("fa-circle-check")} {e(x)}</li>' for x in s["symptoms"])
