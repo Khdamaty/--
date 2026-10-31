@@ -293,3 +293,8 @@ body:not([class*=theme-]) .page-hero{--cat:#143c80;--cat-d:#0b2a5b}
 @media (max-width:620px){.care-grid,.call-when ul{grid-template-columns:1fr}}
 
 @media (max-width:960px){.hero{background:linear-gradient(rgba(9,31,69,.88),rgba(9,31,69,.82)),url(../img/bg-kitchen.jpg) center/cover no-repeat}}
+
+/* اللوجو */
+.brand-logo{height:60px;width:auto;display:block}
+.brand-logo.on-dark{background:#fff;border-radius:14px;padding:6px 12px;height:72px}
+@media (max-width:620px){.brand-logo{height:48px}}

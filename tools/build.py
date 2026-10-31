@@ -20,6 +20,17 @@ TEL = f"tel:{SITE['phone_intl']}"
 WA = f"https://wa.me/{SITE['wa_number']}"
 e = html.escape
 
+GTAG = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18548697970"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18548697970');
+</script>"""
+
+
 
 # ───────────────────────── رسومات SVG ─────────────────────────
 
@@ -149,7 +160,7 @@ def header(pre, active):
 <a href="{TEL}">{icon("fa-phone")} {ph()}</a>
 </div></div>
 <header class="site-header"><div class="container nav-wrap">
-<a class="brand" href="{pre}index.html" aria-label="{e(FULL_NAME)}">{LOGO}<span class="brand-text"><strong>{SITE["name"]}</strong><small>{SITE["tagline"]}</small></span></a>
+<a class="brand" href="{pre}index.html" aria-label="{e(FULL_NAME)}"><img class="brand-logo" src="{pre}assets/img/logo.png" alt="{FULL_NAME}" width="160" height="90"></a>
 <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="القائمة">{icon("fa-bars")}</button>
 <nav id="primary-nav" class="primary-nav" aria-label="القائمة الرئيسية"><ul>{"".join(items)}</ul>
 <a class="btn btn-accent nav-cta" href="{TEL}">{icon("fa-phone")} اتصل الآن</a></nav>
@@ -163,7 +174,7 @@ def footer(pre):
         cols.append(f'<div><h3><a href="{cat_url(c, pre)}">{e(c["name"])}</a></h3><ul>{links}</ul></div>')
     return f'''<footer class="site-footer"><div class="container">
 <div class="foot-grid">
-<div class="foot-brand"><a class="brand" href="{pre}index.html">{LOGO}<span class="brand-text"><strong>{SITE["name"]}</strong><small>{SITE["tagline"]}</small></span></a>
+<div class="foot-brand"><a class="brand" href="{pre}index.html"><img class="brand-logo on-dark" src="{pre}assets/img/logo.png" alt="{FULL_NAME}" width="160" height="90"></a>
 <p>صيانة الغسالات وغسالات الأطباق والثلاجات والديب فريزر بخبرة تزيد على {SITE["experience"]} سنة، مع تشخيص واضح وتكلفة معلنة قبل البدء.</p>
 <ul class="contact-list">
 <li>{icon("fa-phone")} <a href="{TEL}">{ph()}</a></li>
@@ -200,13 +211,15 @@ def page(path, title, desc, body, active="", theme="", ld=None):
 <meta property="og:locale" content="ar_EG">
 <meta property="og:title" content="{e(full_title)}">
 <meta property="og:description" content="{e(desc)}">
-<link rel="icon" href="{pre}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{pre}assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="{pre}assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="{pre}assets/css/style.css">
 <script>document.documentElement.classList.add('js')</script>
+{GTAG}
 {ld_tag}
 </head>
 <body class="{("theme-" + theme) if theme else ""}">
