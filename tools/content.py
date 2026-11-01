@@ -9,9 +9,9 @@ from urllib.parse import quote as _q
 SITE = {
     "name": "خدماتي",
     "tagline": "لصيانة الأجهزة المنزلية",
-    "phone": "01005561548",
-    "phone_intl": "+201005561548",
-    "wa_number": "201005561548",
+    "phone": "01289028181",
+    "phone_intl": "+201289028181",
+    "wa_number": "201289028181",
     "email": "elnakheel55@gmail.com",
     "experience": "25",
     "hours": "نستقبل اتصالاتك على مدار الساعة",
